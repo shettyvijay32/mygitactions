@@ -3,19 +3,22 @@ name: Super-Linter CI
 on:
   push:
     branches:
-      - main
+      - main  # Trigger only on push to the main branch
 
 jobs:
   super-lint:
     name: Lint code base
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # The environment to run the linting in
 
     steps:
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Step 2: Run Super-Linter
       - name: Run Super-Linter
-        uses: github/super-linter@v3
+        uses: github/super-linter@v4  # Using the latest stable version of Super-Linter
         env:
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure GitHub Token is securely passed
+          # Additional environment variables can be set here if needed
