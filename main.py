@@ -1,4 +1,4 @@
-/* def hello():
+''' def hello():
     def bye():
         print("bye")
 
@@ -7,7 +7,7 @@
 
 # Call the hello function to see the output
 result = hello()
-print(result) */
+print(result) '''
 
 def hello():
     # Vulnerability 1: Nested function 'bye' is callable directly within 'hello'
